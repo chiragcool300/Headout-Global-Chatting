@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Spring Boot WebSocket Chat Application | CalliCoder</title>
+    </style>
+
+    <script src=
+                    "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script>
+
+    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+
+        // Setting text of element P with id gfg
+        $("#ip").html("Your IP - " + data.ip);
+        $("#ip").center();
+    })
+<!--    val mes = $("#message"). val()-->
+    $("#dashboard").html("Heyy")
+
+
+
+    </script>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body background="18.jpg"
+      style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+<noscript>
+    <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
+
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">Type your username</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Username"
+                       autocomplete="off" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="accent username-submit">Start
+                    Chatting
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Headout Global Chat Box</h2>
+            <h4>Please don't use any abusive language/content otherwise you will get banned for 7 days from Headout
+                Global Chat. Repeating behavior leads to complete ban</h4>
+        </div>
+        <div class="connecting">Connecting...</div>
+        <ul id="messageArea">
+            <li style="text-align : center" id="ip"></li>
+            <li style="text-align : center" id="dashboard"></li>
+        </ul>
+        <form id="messageForm" name="messageForm" nameForm="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Type a message..."
+                           autocomplete="off" class="form-control"/>
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
